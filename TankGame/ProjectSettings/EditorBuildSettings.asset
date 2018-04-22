@@ -8,3 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 360e680070f2bc849a5a97769bcedb40
+  - enabled: 1
+    path: Assets/Scenes/PlayerLost.unity
+    guid: 2c14d4410d8b4bb41a3e1fda3793917c
+  - enabled: 1
+    path: Assets/Scenes/PlayerWon.unity
+    guid: 4c9305afcbe833a43bd7f961456b01cd

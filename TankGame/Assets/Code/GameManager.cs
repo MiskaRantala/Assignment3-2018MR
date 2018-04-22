@@ -30,13 +30,16 @@ namespace TankGame
 
 		public static bool IsClosing { get; private set; }
 
-		#endregion
+        #endregion
 
+        public Collectable collectable;
 		private List< Unit > _enemyUnit = new List< Unit >();
 		private Unit _playerUnit = null;
 		private SaveSystem _saveSystem;
+        public float MaxObjects = 100;
+        public float pointCount = Random.value;
 
-		public string SavePath
+        public string SavePath
 		{
 			get { return Path.Combine( Application.persistentDataPath, "save" ); }
 		}
@@ -117,6 +120,13 @@ namespace TankGame
 			{
 				Load();
 			}
+
+            if (Time.frameCount % 120 == 0)
+            {
+            //    collectable.SpawnObject();
+                
+            }
+
 		}
 
 		public void AddUnit( Unit unit )
@@ -164,5 +174,11 @@ namespace TankGame
 
 			_playerUnit.SetUnitData( data.PlayerData );
 		}
-	}
+
+        public void Respawner()
+        {
+           // Destroy(gameObject);
+            Vector3 spawnPoint = Vector3.zero;
+        }
+    }
 }

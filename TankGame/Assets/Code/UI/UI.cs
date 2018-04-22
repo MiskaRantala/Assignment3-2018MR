@@ -10,11 +10,11 @@ namespace TankGame.UI
 
 		public HealthUI HealthUI { get; private set; }
 
-		public void Init()
+        public void Init()
 		{
 			Current = this;
 			HealthUI = GetComponentInChildren< HealthUI >();
 			HealthUI.Init();
-		}
+        }
 	}
 }
