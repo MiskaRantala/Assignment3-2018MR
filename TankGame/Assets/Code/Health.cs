@@ -57,7 +57,7 @@ namespace TankGame
                 if (_lives > 0)
                 {
                     _currentHealth = _originalHealth;
-                    gm.Respawner();
+                 //   gm.Respawner();
                     PlayerDidDie = false;
                 }
                 else
@@ -68,7 +68,7 @@ namespace TankGame
             if (didDie)
             {
                 _currentHealth = _originalHealth;
-                gm.Respawner();
+          //      gm.Respawner();
                 didDie = false;
             }
 			return didDie;

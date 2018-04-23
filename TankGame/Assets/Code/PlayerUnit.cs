@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace TankGame
 {
@@ -12,13 +13,18 @@ namespace TankGame
 		[Tooltip("The name of the vertical axis")]
 		private string _verticalAxis = "Vertical";
 
+        public PointAwarder pointawarder;
+
+        public float collectedPoints = 0;
+
+
 		protected override void Update()
 		{
 			var input = ReadInput();
 			Mover.Turn( input.x );
 			Mover.Move( input.z );
 
-			// TODO: Refactor me! Extract method.
+			// TODO: Refactor me! Extract method. 
 			bool shoot = Input.GetButton( "Fire1" );
 			if ( shoot )
 			{
@@ -32,5 +38,21 @@ namespace TankGame
 			float turn = Input.GetAxis( _horizontalAxis );
 			return new Vector3(turn, 0, movement);
 		}
-	}
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Collectable"))
+            {
+                other.gameObject.SetActive(false);
+                Debug.Log("got em");
+                collectedPoints += pointawarder.pointsAwarded;
+
+                if (collectedPoints > 300)
+                {
+                    SceneManager.LoadScene("PlayerWon");
+                }
+            }
+            Debug.Log("wut");
+        }
+    }
 }

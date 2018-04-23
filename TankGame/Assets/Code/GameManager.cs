@@ -32,12 +32,11 @@ namespace TankGame
 
         #endregion
 
-        public Collectable collectable;
 		private List< Unit > _enemyUnit = new List< Unit >();
 		private Unit _playerUnit = null;
 		private SaveSystem _saveSystem;
         public float MaxObjects = 100;
-        public float pointCount = Random.value;
+    //    public float pointCount = Random.value;
 
         public string SavePath
 		{
@@ -175,10 +174,10 @@ namespace TankGame
 			_playerUnit.SetUnitData( data.PlayerData );
 		}
 
-        public void Respawner()
+     /*   public void Respawner()
         {
            // Destroy(gameObject);
             Vector3 spawnPoint = Vector3.zero;
-        }
+        } */
     }
 }
